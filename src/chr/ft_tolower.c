@@ -6,20 +6,12 @@
 /*   By: dligthar <dligthar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 17:47:50 by dligthar      #+#    #+#                 */
-/*   Updated: 2023/01/09 21:23:43 by dligthar      ########   odam.nl         */
+/*   Updated: 2023/04/14 18:54:51 by dligthar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-Description:
-The tolower() function converts an upper-case letter to the corresponding
-lower-case letter.
-The argument must be representable as an unsigned char or the value of EOF.
-
-Return value:
-If the argument is an upper-case letter, the tolower() function returns
-the corresponding lower-case letter if there is one,
-otherwise, the argument is returned unchanged.
+Returns conversion to lower case letter c, if possible. Otherwise c is returned.
 */
 int	ft_tolower(int c)
 {

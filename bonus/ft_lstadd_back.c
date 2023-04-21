@@ -6,7 +6,7 @@
 /*   By: dligthar <dligthar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/10 14:54:25 by dligthar      #+#    #+#                 */
-/*   Updated: 2023/03/16 19:50:53 by dligthar      ########   odam.nl         */
+/*   Updated: 2023/04/18 19:23:22 by dligthar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last_node;
 
+	if (!new)
+		return ;
 	if (!*lst)
 	{
 		*lst = new;
 		return ;
 	}
-	last_node = ft_lstlast(*lst);
+	last_node = *lst;
+	while (last_node->next)
+		last_node = last_node->next;
 	last_node->next = new;
 }

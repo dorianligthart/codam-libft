@@ -6,20 +6,15 @@
 /*   By: dligthar <dligthar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 15:31:39 by dligthar      #+#    #+#                 */
-/*   Updated: 2023/01/09 20:36:29 by dligthar      ########   odam.nl         */
+/*   Updated: 2023/04/14 19:02:40 by dligthar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-Description:
-The isascii() function tests for an ASCII character,
-which is any character between 0 and octal 0177 inclusive,
-which is any character between 0 and decimal 127 inclusive.
-
-Return value:
-The isascii() function shall return non-zero if c is
-a 7-bit US-ASCII character code between 0 and octal 0177 inclusive
-otherwise, it shall return 0.
+Checks whether c is a 7-bit unsigned char value that
+fits into the ASCII character set.
+man source: https://linux.die.net/man/3/isalnum && 
+			https://linux.die.net/man/3/tolower
 */
 int	ft_isascii(int c)
 {

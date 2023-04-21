@@ -6,7 +6,7 @@
 /*   By: dligthar <dligthar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/09 16:31:20 by dligthar      #+#    #+#                 */
-/*   Updated: 2023/04/08 16:38:28 by dligthar      ########   odam.nl         */
+/*   Updated: 2023/04/18 18:56:03 by dligthar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,31 @@
 
 #include <stdlib.h>
 
-/*
-frees char **s itself and its components.
-index is value of s[index] that got returned NULL because malloc failed. 
-(starts free 1 under index)
-*/
-static void	*ft_free_arr_return_null(char **s, int arrlen)
+static char	**split_setwords(char **s2, char const *s, char c, int words)
 {
-	while (arrlen--)
-		free(s[arrlen]);
-	free(s);
-	return (NULL);
-}
+	int		i;
+	int		w;
+	int		wordlen;
 
-static char	**split_setwords(char **s2, char const *s, char sep_chr, int words)
-{
-	int		wordindex;
-	int		sep_len;
-	int		len;
-
-	wordindex = 0;
-	sep_len = 0;
-	while (wordindex < words)
+	i = 0;
+	w = 0;
+	while (w < words)
 	{
-		len = 0;
-		while (s[sep_len] == sep_chr)
-			sep_len++;
-		while (s[sep_len + len] && s[sep_len + len] != sep_chr)
-			len++;
-		s2[wordindex] = ft_substr(s, sep_len, len);
-		if (!s2[wordindex])
-			return (ft_free_arr_return_null(s2, wordindex));
-		while (s[sep_len] && s[sep_len] != sep_chr)
-			sep_len++;
-		wordindex++;
+		wordlen = 0;
+		while (s[i] == c)
+			i++;
+		while (s[i + wordlen] && s[i + wordlen] != c)
+			wordlen++;
+		s2[w] = ft_substr(s, i, wordlen);
+		if (!s2[w])
+		{
+			while (w >= 0)
+				free(s2[w--]);
+			free(s2);
+			return (NULL);
+		}
+		i += wordlen;
+		w++;
 	}
 	return (s2);
 }
@@ -58,13 +49,10 @@ static unsigned int	split_countwords(char const *s, char sep)
 	int	words;
 
 	words = 0;
-	index = 0;
-	while (s[index])
-	{
+	index = -1;
+	while (s[++index])
 		if (s[index] != sep && (s[index + 1] == sep || s[index + 1] == '\0'))
 			words++;
-		index++;
-	}
 	return (words);
 }
 

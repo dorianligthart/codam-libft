@@ -6,7 +6,7 @@
 /*   By: dligthar <dligthar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 13:33:52 by dligthar      #+#    #+#                 */
-/*   Updated: 2023/03/24 16:43:07 by dligthar      ########   odam.nl         */
+/*   Updated: 2023/04/18 19:03:25 by dligthar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}					t_list;
+}	t_list;
 
 //subject PDF order:
 //mandatory part 1:
@@ -73,5 +73,9 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+//my own extra functions:
+int		ft_isspace(char c);
+int		ft_intlen(int n, int base);
 
 #endif

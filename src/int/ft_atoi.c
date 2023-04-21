@@ -6,11 +6,11 @@
 /*   By: dligthar <dligthar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 20:22:39 by dligthar      #+#    #+#                 */
-/*   Updated: 2023/04/08 13:13:59 by dligthar      ########   odam.nl         */
+/*   Updated: 2023/04/21 16:38:23 by dligthar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_isspace(char c)
+int	ft_isspace(char c)
 {
 	return (c == '\n' || c == '\f' || c == '\t'
 		|| c == '\v' || c == '\r' || c == ' ');

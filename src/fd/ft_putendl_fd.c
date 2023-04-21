@@ -6,7 +6,7 @@
 /*   By: dligthar <dligthar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 17:57:50 by dligthar      #+#    #+#                 */
-/*   Updated: 2023/04/08 15:34:43 by dligthar      ########   odam.nl         */
+/*   Updated: 2023/04/18 19:09:23 by dligthar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 
+	if (fd < 0)
+		return ;
 	i = 0;
 	while (s && s[i])
 		write(fd, s + i++, 1);

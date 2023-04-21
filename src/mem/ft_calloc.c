@@ -6,11 +6,9 @@
 /*   By: dligthar <dligthar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 14:19:34 by dligthar      #+#    #+#                 */
-/*   Updated: 2023/04/08 13:46:56 by dligthar      ########   odam.nl         */
+/*   Updated: 2023/04/21 16:39:26 by dligthar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../../libft.h"
 
 #include <stdlib.h>
 

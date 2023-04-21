@@ -6,13 +6,13 @@
 /*   By: dligthar <dligthar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/10 16:01:18 by dligthar      #+#    #+#                 */
-/*   Updated: 2023/03/24 17:35:24 by dligthar      ########   odam.nl         */
+/*   Updated: 2023/04/18 18:58:20 by dligthar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static int	ft_intlen(int n, int base)
+int	ft_intlen(int n, int base)
 {
 	int	intlen;
 

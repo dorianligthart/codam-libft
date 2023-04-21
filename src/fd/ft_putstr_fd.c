@@ -6,7 +6,7 @@
 /*   By: dligthar <dligthar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 17:56:45 by dligthar      #+#    #+#                 */
-/*   Updated: 2023/04/08 16:45:01 by dligthar      ########   odam.nl         */
+/*   Updated: 2023/04/14 20:43:56 by dligthar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
+	if (fd < 0)
+		return ;
 	i = 0;
 	while (s && s[i])
 		write(fd, s + i++, 1);

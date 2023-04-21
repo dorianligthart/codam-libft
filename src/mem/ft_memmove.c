@@ -6,7 +6,7 @@
 /*   By: dligthar <dligthar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 13:59:19 by dligthar      #+#    #+#                 */
-/*   Updated: 2023/04/08 13:41:01 by dligthar      ########   odam.nl         */
+/*   Updated: 2023/04/18 16:36:33 by dligthar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,10 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	if (!dst && !src)
 		return (NULL);
-	i = 0;
-	while (len--)
-	{
-		if (dst < src)
-		{
-			*(char *)(dst + i) = *(char *)(src + i);
-			i++;
-		}
-		else
-			*(char *)(dst + len) = *(char *)(src + len);
-	}
+	while (dst >= src && len--)
+		*(char *)(dst + len) = *(char *)(src + len);
+	i = -1;
+	while (dst < src && ++i < len)
+		*(char *)(dst + i) = *(char *)(src + i);
 	return (dst);
 }
