@@ -1,41 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   libft.h                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: dligthar <dligthar@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/04 13:33:52 by dligthar      #+#    #+#                 */
-/*   Updated: 2023/04/18 19:03:25 by dligthar      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doligtha <doligtha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/05 19:09:51 by doligtha          #+#    #+#             */
+/*   Updated: 2023/11/11 01:03:11 by doligtha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
 # include <stddef.h>
 
-//bonus: linked list struct
+# ifdef DEBUG
+#  include "libft.h"
+#  include <stdio.h>
+#  include <unistd.h>
+#  include <limits.h>
+#  include <string.h>
+# endif
+
+//bonus part - linked list struct def:
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
 
-//subject PDF order:
-//mandatory part 1:
+//PDF ORDER:
+//part 1 - ctype.h, string.h, strings.h, stdlib.h:
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 size_t	ft_strlen(const char *s);
-void	*ft_memset(void *b, int c, size_t len);
+void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-void	*ft_memmove(void *dst, const void *src, size_t len);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memmove(void *dest, const void *src, size_t n);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 int		ft_toupper(int c);
 int		ft_tolower(int c);
@@ -44,13 +51,13 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
-int		ft_atoi(const char *str);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+int		ft_atoi(const char *nptr);
 
-void	*ft_calloc(size_t count, size_t size);
-char	*ft_strdup(const char *s1);
+void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_strdup(const char *s);
 
-//mandatory part 2:
+//part 2 - libft.h:
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
@@ -74,8 +81,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-//my own extra functions:
-int		ft_isspace(char c);
+//custom functions:
 int		ft_intlen(int n, int base);
-
 #endif
